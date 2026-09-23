@@ -926,7 +926,6 @@ function d.Window(Z,m)
     local q2=m.Loading
     if q2==false then task.defer(function() j:_playIntro()end)
     else j:_showLoader(m)end
-    if d._mainCredit then j:_buildMainTab(d._mainCredit)end
     if j.AutoLoad then j:_startAutoLoad()end
     return j
 end
@@ -1444,13 +1443,6 @@ function g:_startAutoLoad()
 end
 function d.SetScriptName(first,second) if first==d then first=second end d.ScriptName=first end
 function d.SetPremium(first,second) if first==d then first=second end d.Premium=first==true end
-function d.MainCredit(first,second) if first==d then first=second end d._mainCredit=type(first)=="table"and first or{} end
-function g:_buildMainTab(opts)
-    local tab=self:Tab{Name=opts.TabName or"Main",Desc=opts.Desc or"",Icon=opts.Icon or"house"}
-    tab:Section"Info"
-    tab:Label{Text="<b>Zyphex | Hub</b>",Color=b.Success}
-    return tab
-end
 function g:Dialog(j)
     local r="TextTransparency"
     j=k(j,{Text="Content",Message="Content"})
