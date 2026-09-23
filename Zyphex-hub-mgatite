@@ -814,7 +814,7 @@ function d.Window(Z,m)
     m=k(m,{Name="Title",LoadingSubtitle="Subtitle",ToggleUIKeybind="Keybind"})
     if type(m.Keybind)=="string"then m.Keybind=Enum.KeyCode[m.Keybind]end
     if type(m.ToggleUIKeybind)=="string"then m.ToggleUIKeybind=Enum.KeyCode[m.ToggleUIKeybind]end
-    local U=m.Size or UDim2.fromOffset(480,320)
+    local U=m.Size or UDim2.fromOffset(440,300)
     local N=m.Keybind or m.ToggleUIKeybind or Enum.KeyCode.RightControl
     local j=setmetatable({Tabs={},CurrentTab=nil,Open=true,Keybind=N,_connections={},_controls={},_inputListeners={Began={},Changed={},Ended={}},_destroyed=false},g)
     local function I(a) return function(...) for b,a in ipairs(j._inputListeners[a])do a(...)end end end
@@ -837,14 +837,14 @@ function d.Window(Z,m)
     x(n2,UDim2.fromOffset(400,150),UDim2.new(.5,0,1,8),.86,270)
     x(n2,UDim2.fromOffset(110,50),UDim2.new(0,-10,1,-10),.75,90)
     x(n2,UDim2.fromOffset(420,200),UDim2.new(1,-14,0,10),.92,90)
-    local A2=c(o,{Name="Sidebar",Size=UDim2.new(0,140,1,0),BackgroundTransparency=1,Parent=n2})
-    c(o,{Position=UDim2.new(0,140,0,28),Size=UDim2.new(0,1,1,-56),BackgroundColor3=b.Stroke,BorderSizePixel=0,Parent=n2})
-    local J2=c(o,{Name="Header",Size=UDim2.new(1,0,0,64),BackgroundTransparency=1,Parent=A2})
-    f{Position=UDim2.fromOffset(18,20),Size=UDim2.new(1,-36,0,18),Text=m.Title or m.Name or"Zyphex | Hub",TextSize=17,Parent=J2}
-    f{Position=UDim2.fromOffset(18,38),Size=UDim2.new(1,-36,0,12),Text=m.Subtitle or"",TextSize=11,FontFace=i.Regular,TextColor3=b.Muted,Parent=J2}
-    local w=c("ScrollingFrame",{Name="Tabs",Position=UDim2.fromOffset(0,70),Size=UDim2.new(1,0,1,-96),BackgroundTransparency=1,BorderSizePixel=0,ScrollBarThickness=0,AutomaticCanvasSize=Enum.AutomaticSize.Y,CanvasSize=UDim2.new(),Parent=A2})
+    local A2=c(o,{Name="Sidebar",Size=UDim2.new(0,130,1,0),BackgroundTransparency=1,Parent=n2})
+    c(o,{Position=UDim2.new(0,130,0,28),Size=UDim2.new(0,1,1,-56),BackgroundColor3=b.Stroke,BorderSizePixel=0,Parent=n2})
+    local J2=c(o,{Name="Header",Size=UDim2.new(1,0,0,58),BackgroundTransparency=1,Parent=A2})
+    f{Position=UDim2.fromOffset(14,18),Size=UDim2.new(1,-28,0,18),Text=m.Title or m.Name or"Zyphex | Hub",TextSize=16,Parent=J2}
+    f{Position=UDim2.fromOffset(14,35),Size=UDim2.new(1,-28,0,12),Text=m.Subtitle or"",TextSize=10,FontFace=i.Regular,TextColor3=b.Muted,Parent=J2}
+    local w=c("ScrollingFrame",{Name="Tabs",Position=UDim2.fromOffset(0,64),Size=UDim2.new(1,0,1,-90),BackgroundTransparency=1,BorderSizePixel=0,ScrollBarThickness=0,AutomaticCanvasSize=Enum.AutomaticSize.Y,CanvasSize=UDim2.new(),Parent=A2})
     j.TabList=w
-    t(w,12,12,4,4)
+    t(w,10,10,4,4)
     c(M,{SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,4),Parent=w})
     local B2=c(o,{AnchorPoint=Vector2.new(0,.5),Position=UDim2.fromOffset(4,0),Size=UDim2.fromOffset(3,16),BackgroundColor3=b.Accent,BorderSizePixel=0,Visible=false,ZIndex=2,Parent=A2})
     e(B2,UDim.new(1,0))
@@ -860,21 +860,21 @@ function d.Window(Z,m)
         B2.Visible=a>c and a<d
         B2.Position=UDim2.fromOffset(4,a)
     end))
-    local S2=c(o,{Position=UDim2.new(0,22,1,-30),Size=UDim2.new(1,-44,0,22),BackgroundTransparency=1,Visible=false,Parent=A2})
+    local S2=c(o,{Position=UDim2.new(0,18,1,-26),Size=UDim2.new(1,-36,0,22),BackgroundTransparency=1,Visible=false,Parent=A2})
     j._keyChipLabel=f{Size=UDim2.new(0,0,1,0),Text="",Parent=S2}
-    local C2=c(o,{Name="Content",Position=UDim2.fromOffset(141,0),Size=UDim2.new(1,-141,1,0),BackgroundTransparency=1,ClipsDescendants=true,Parent=n2})
+    local C2=c(o,{Name="Content",Position=UDim2.fromOffset(131,0),Size=UDim2.new(1,-131,1,0),BackgroundTransparency=1,ClipsDescendants=true,Parent=n2})
     j.Content=C2
     j._outLayer=c(G2,{Name="TransitionOut",Size=UDim2.fromScale(1,1),BackgroundTransparency=1,Visible=false,ZIndex=2,Parent=C2})
     j._inLayer=c(G2,{Name="TransitionIn",Size=UDim2.fromScale(1,1),BackgroundTransparency=1,Visible=false,ZIndex=3,Parent=C2})
-    local u=c("TextButton",{AnchorPoint=Vector2.new(1,0),Position=UDim2.new(1,-12,0,12),Size=UDim2.fromOffset(28,28),BackgroundColor3=b.Surface2,BackgroundTransparency=1,Text="×",TextColor3=b.Muted,TextSize=22,FontFace=i.Medium,AutoButtonColor=false,ZIndex=5,Parent=C2})
+    local u=c("TextButton",{AnchorPoint=Vector2.new(1,0),Position=UDim2.new(1,-10,0,10),Size=UDim2.fromOffset(26,26),BackgroundColor3=b.Surface2,BackgroundTransparency=1,Text="×",TextColor3=b.Muted,TextSize=20,FontFace=i.Medium,AutoButtonColor=false,ZIndex=5,Parent=C2})
     t(u,0,0,1,0)
     e(u,UDim.new(0,8))
     table.insert(j._controls,u)
     u.MouseEnter:Connect(function() a(u,{BackgroundTransparency=0,TextColor3=b.Text},.15)end)
     u.MouseLeave:Connect(function() a(u,{BackgroundTransparency=1,TextColor3=b.Muted},.2)end)
     u.MouseButton1Click:Connect(function() j:Toggle(false)end)
-    local K2=c(o,{Name="Notifications",AnchorPoint=Vector2.new(1,1),Position=UDim2.new(1,-20,1,-20),Size=UDim2.new(0,260,1,-40),BackgroundTransparency=1,Parent=r})
-    local function Y2() K2.Size=UDim2.new(0,math.min(260,r.AbsoluteSize.X-40),1,-40)end
+    local K2=c(o,{Name="Notifications",AnchorPoint=Vector2.new(1,1),Position=UDim2.new(1,-20,1,-20),Size=UDim2.new(0,240,1,-40),BackgroundTransparency=1,Parent=r})
+    local function Y2() K2.Size=UDim2.new(0,math.min(240,r.AbsoluteSize.X-40),1,-40)end
     table.insert(j._connections,r:GetPropertyChangedSignal(H):Connect(Y2))
     c(M,{SortOrder=Enum.SortOrder.LayoutOrder,VerticalAlignment=Enum.VerticalAlignment.Bottom,Padding=UDim.new(0,4),Parent=K2})
     j.NotifyHolder=K2
@@ -1028,20 +1028,20 @@ function g:_showLoader(g)
     local j="Frame"
     local m=g.LoadingDuration or 1.6
     local w=self.Gui
-    local d=c("CanvasGroup",{AnchorPoint=Vector2.new(.5,.5),Position=UDim2.new(.5,0,.5,16),Size=UDim2.fromOffset(260,110),BackgroundColor3=b.Background,BorderSizePixel=0,GroupTransparency=1,ZIndex=10,Parent=w})
+    local d=c("CanvasGroup",{AnchorPoint=Vector2.new(.5,.5),Position=UDim2.new(.5,0,.5,16),Size=UDim2.fromOffset(240,100),BackgroundColor3=b.Background,BorderSizePixel=0,GroupTransparency=1,ZIndex=10,Parent=w})
     local y=e(d,UDim.new(0,12))
     local z=h(d,b.Stroke,1)
     L(d)
-    x(d,UDim2.fromOffset(280,120),UDim2.new(1,-20,0,-20),.85,90)
-    x(d,UDim2.fromOffset(200,80),UDim2.new(0,10,1,10),.9,270)
+    x(d,UDim2.fromOffset(260,110),UDim2.new(1,-20,0,-20),.85,90)
+    x(d,UDim2.fromOffset(180,70),UDim2.new(0,10,1,10),.9,270)
     local o2=c("UIScale",{Scale=.92,Parent=d})
     local p2=c("ImageLabel",{Position=UDim2.fromOffset(-25,-25),Size=UDim2.new(1,50,1,50),BackgroundTransparency=1,Image=s.Shadow,ImageColor3=Color3.new(0,0,0),ImageTransparency=1,ScaleType=Enum.ScaleType.Slice,SliceCenter=Rect.new(49,49,450,450),ZIndex=0,Parent=d})
-    local q2=c(j,{Position=UDim2.fromOffset(20,22),Size=UDim2.fromOffset(34,34),BackgroundTransparency=1,Parent=d})
+    local q2=c(j,{Position=UDim2.fromOffset(18,20),Size=UDim2.fromOffset(32,32),BackgroundTransparency=1,Parent=d})
     local r2=c("ImageLabel",{AnchorPoint=Vector2.new(.5,.5),Position=UDim2.fromScale(.5,.5),Size=UDim2.fromScale(.85,.85),Rotation=-14,BackgroundTransparency=1,Image="rbxassetid://77045253769529",ImageTransparency=1,ScaleType=Enum.ScaleType.Fit,Parent=q2})
     task.delay(.15,function() a(r2,{Size=UDim2.fromScale(.85,.85),Rotation=0,ImageTransparency=0},.6,Enum.EasingStyle.Back)end)
-    f{Position=UDim2.fromOffset(66,26),Size=UDim2.new(1,-90,0,20),Text=g.LoadingTitle or g.Title or"Zyphex | Hub",TextSize=17,Parent=d}
-    local A2=f{Position=UDim2.fromOffset(66,46),Size=UDim2.new(1,-90,0,14),Text=g.LoadingText or g.Subtitle or"Loading",TextSize=12,FontFace=i.Regular,TextColor3=b.Muted,Parent=d}
-    local k2=c(j,{Position=UDim2.new(0,20,1,-26),Size=UDim2.new(1,-40,0,3),BackgroundColor3=b.Surface3,BorderSizePixel=0,ClipsDescendants=true,Parent=d})
+    f{Position=UDim2.fromOffset(60,24),Size=UDim2.new(1,-80,0,18),Text=g.LoadingTitle or g.Title or"Zyphex | Hub",TextSize=16,Parent=d}
+    local A2=f{Position=UDim2.fromOffset(60,44),Size=UDim2.new(1,-80,0,14),Text=g.LoadingText or g.Subtitle or"Loading",TextSize=11,FontFace=i.Regular,TextColor3=b.Muted,Parent=d}
+    local k2=c(j,{Position=UDim2.new(0,18,1,-24),Size=UDim2.new(1,-36,0,3),BackgroundColor3=b.Surface3,BorderSizePixel=0,ClipsDescendants=true,Parent=d})
     e(k2,UDim.new(1,0))
     local l2=c(j,{Size=UDim2.fromScale(0,1),BackgroundColor3=b.Accent,BorderSizePixel=0,Parent=k2})
     e(l2,UDim.new(1,0))
@@ -1094,8 +1094,8 @@ function g:_clampToScreen()
 end
 function g:_createOpenButton(cfg,defaultIcon)
     local d=self.Gui
-    local a=c("ImageButton",{Name="ZyphexToggle",AnchorPoint=Vector2.new(.5,0),Position=UDim2.new(.5,0,0,14),Size=UDim2.fromOffset(52,52),BackgroundColor3=Color3.fromRGB(20,20,24),BackgroundTransparency=.05,Image="rbxassetid://77045253769529",ImageColor3=Color3.fromRGB(255,255,255),ScaleType=Enum.ScaleType.Fit,AutoButtonColor=false,ZIndex=30,Parent=d})
-    e(a,UDim.new(0,14))
+    local a=c("ImageButton",{Name="ZyphexToggle",AnchorPoint=Vector2.new(.5,0),Position=UDim2.new(.5,0,0,14),Size=UDim2.fromOffset(48,48),BackgroundColor3=Color3.fromRGB(20,20,24),BackgroundTransparency=.05,Image="rbxassetid://77045253769529",ImageColor3=Color3.fromRGB(255,255,255),ScaleType=Enum.ScaleType.Fit,AutoButtonColor=false,ZIndex=30,Parent=d})
+    e(a,UDim.new(0,12))
     h(a,Color3.fromRGB(255,255,255),.7,1.5)
     c("UIGradient",{Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(60,60,70)),ColorSequenceKeypoint.new(1,Color3.fromRGB(15,15,20))}),Rotation=135,Parent=a})
     c("UIPadding",{PaddingLeft=UDim.new(0,8),PaddingRight=UDim.new(0,8),PaddingTop=UDim.new(0,8),PaddingBottom=UDim.new(0,8),Parent=a})
@@ -1195,37 +1195,37 @@ function g:Tab(g,s)
     g=k(g,{Title="Name",Description="Desc"})
     if s~=nil and g.Icon==nil then g.Icon=s end
     local d2=setmetatable({Name=g.Name or"Tab",Window=self,_order=0},j)
-    local l2=c("TextButton",{Size=UDim2.new(1,0,0,32),BackgroundColor3=b.Surface2,BackgroundTransparency=1,Text="",AutoButtonColor=false,LayoutOrder=#self.Tabs+1,Parent=self.TabList})
+    local l2=c("TextButton",{Size=UDim2.new(1,0,0,30),BackgroundColor3=b.Surface2,BackgroundTransparency=1,Text="",AutoButtonColor=false,LayoutOrder=#self.Tabs+1,Parent=self.TabList})
     e(l2)
     local q2=h(l2,b.Stroke,1)
     d2._button=l2
     table.insert(self._controls,l2)
     local p2=g.Icon~=nil
     if p2 then
-        local a=c("ImageLabel",{AnchorPoint=Vector2.new(0,.5),Position=UDim2.new(0,10,.5,0),Size=UDim2.fromOffset(14,14),BackgroundTransparency=1,ImageColor3=b.Muted,ScaleType=Enum.ScaleType.Fit,Parent=l2})
+        local a=c("ImageLabel",{AnchorPoint=Vector2.new(0,.5),Position=UDim2.new(0,10,.5,0),Size=UDim2.fromOffset(13,13),BackgroundTransparency=1,ImageColor3=b.Muted,ScaleType=Enum.ScaleType.Fit,Parent=l2})
         v(a,g.Icon)
         d2._icon=a
     end
-    d2._label=f{Position=UDim2.fromOffset(p2 and 30 or 12,0),Size=UDim2.new(1,-(p2 and 38 or 20),1,0),Text=d2.Name,TextColor3=b.Muted,TextSize=13,Parent=l2}
+    d2._label=f{Position=UDim2.fromOffset(p2 and 28 or 12,0),Size=UDim2.new(1,-(p2 and 36 or 20),1,0),Text=d2.Name,TextColor3=b.Muted,TextSize=13,Parent=l2}
     local m2=c("Frame",{Name=d2.Name,Size=UDim2.fromScale(1,1),BackgroundTransparency=1,Visible=false,Parent=self.Content})
     d2._page=m2
-    f{Position=UDim2.fromOffset(20,16),Size=UDim2.new(1,-60,0,20),Text=d2.Name,TextSize=18,Parent=m2}
-    if g.Desc then f{Position=UDim2.fromOffset(20,36),Size=UDim2.new(1,-60,0,14),Text=g.Desc,TextSize=12,FontFace=i.Regular,TextColor3=b.Muted,Parent=m2}end
-    local u2=g.Desc and 58 or 48
+    f{Position=UDim2.fromOffset(18,14),Size=UDim2.new(1,-56,0,20),Text=d2.Name,TextSize=17,Parent=m2}
+    if g.Desc then f{Position=UDim2.fromOffset(18,34),Size=UDim2.new(1,-56,0,14),Text=g.Desc,TextSize=11,FontFace=i.Regular,TextColor3=b.Muted,Parent=m2}end
+    local u2=g.Desc and 54 or 44
     local n2=c("ScrollingFrame",{Position=UDim2.fromOffset(0,u2),Size=UDim2.new(1,0,1,-u2),BackgroundTransparency=1,BorderSizePixel=0,ScrollBarThickness=2,ScrollBarImageColor3=b.Accent,ScrollBarImageTransparency=.5,AutomaticCanvasSize=Enum.AutomaticSize.Y,CanvasSize=UDim2.new(),Parent=m2})
-    t(n2,18,18,2,18)
+    t(n2,16,16,2,16)
     c("UIListLayout",{SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,6),Parent=n2})
     d2.List=n2
     table.insert(self._controls,n2)
-    local o2=c("Frame",{AnchorPoint=Vector2.new(.5,.5),Position=UDim2.new(.5,0,.5,-10),Size=UDim2.fromOffset(180,60),BackgroundTransparency=1,Parent=m2})
-    local x2=c("ImageLabel",{AnchorPoint=Vector2.new(.5,0),Position=UDim2.new(.5,0,0,0),Size=UDim2.fromOffset(22,22),BackgroundTransparency=1,ImageColor3=b.Muted,ImageTransparency=.15,ScaleType=Enum.ScaleType.Fit,Parent=o2})
+    local o2=c("Frame",{AnchorPoint=Vector2.new(.5,.5),Position=UDim2.new(.5,0,.5,-10),Size=UDim2.fromOffset(160,50),BackgroundTransparency=1,Parent=m2})
+    local x2=c("ImageLabel",{AnchorPoint=Vector2.new(.5,0),Position=UDim2.new(.5,0,0,0),Size=UDim2.fromOffset(20,20),BackgroundTransparency=1,ImageColor3=b.Muted,ImageTransparency=.15,ScaleType=Enum.ScaleType.Fit,Parent=o2})
     v(x2,g.Icon or"layout-grid")
-    f{Position=UDim2.fromOffset(0,30),Size=UDim2.new(1,0,0,14),Text=g.EmptyText or"Nothing here yet",TextSize=12,FontFace=i.Regular,TextColor3=b.Muted,TextXAlignment=Enum.TextXAlignment.Center,Parent=o2}
+    f{Position=UDim2.fromOffset(0,26),Size=UDim2.new(1,0,0,14),Text=g.EmptyText or"Nothing here yet",TextSize=12,FontFace=i.Regular,TextColor3=b.Muted,TextXAlignment=Enum.TextXAlignment.Center,Parent=o2}
     local r2=0
     n2.ChildAdded:Connect(function(a) if a:IsA"GuiObject"then r2+=1 o2.Visible=false end end)
     n2.ChildRemoved:Connect(function(a) if a:IsA"GuiObject"then r2-=1 o2.Visible=r2<=0 end end)
     o2.Visible=true
-    local w2=p2 and 30 or 12
+    local w2=p2 and 28 or 12
     l2.MouseEnter:Connect(function()
         a(d2._label,{Position=UDim2.fromOffset(w2+3,0)},.2)
         if self.CurrentTab~=d2 then a(l2,{BackgroundTransparency=.4},.12)a(q2,{Transparency=.5},.12)end
@@ -1264,7 +1264,7 @@ function g:_placeIndicator(d2)
     local b=self.Indicator
     local c=self:_indicatorY(d2)
     if not b.Visible then b.Visible=true b.Position=UDim2.fromOffset(4,c)b.Size=UDim2.fromOffset(3,0)end
-    a(b,{Position=UDim2.fromOffset(4,c),Size=UDim2.fromOffset(3,16)},.35,Enum.EasingStyle.Back)
+    a(b,{Position=UDim2.fromOffset(4,c),Size=UDim2.fromOffset(3,14)},.35,Enum.EasingStyle.Back)
 end
 function g:SelectTab(c)
     if self.CurrentTab==c then return end
@@ -1350,7 +1350,72 @@ function g:Destroy()
     a(self.Shadow,{ImageTransparency=1},.2)
     task.delay(.22,function() self.Gui:Destroy()end)
 end
-function g:_createSearch() end
+function g:_createSearch()
+    local list=self.TabList
+    local sidebar=list.Parent
+    list.Position=list.Position+UDim2.fromOffset(0,28)
+    list.Size=list.Size-UDim2.fromOffset(0,28)
+    local box=c("Frame",{Name="Search",Position=UDim2.fromOffset(10,60),Size=UDim2.new(1,-20,0,26),BackgroundColor3=b.Surface,BorderSizePixel=0,Parent=sidebar})
+    e(box,UDim.new(0,7))
+    local boxStroke=h(box)
+    local icon=c("ImageLabel",{AnchorPoint=Vector2.new(0,.5),Position=UDim2.new(0,8,.5,0),Size=UDim2.fromOffset(12,12),BackgroundTransparency=1,ImageColor3=b.Muted,ScaleType=Enum.ScaleType.Fit,Parent=box})
+    v(icon,"search")
+    local input=c("TextBox",{Position=UDim2.fromOffset(26,0),Size=UDim2.new(1,-32,1,0),BackgroundTransparency=1,Text="",PlaceholderText="Search...",PlaceholderColor3=b.Muted,TextColor3=b.Text,TextSize=12,FontFace=i.Regular,TextXAlignment=Enum.TextXAlignment.Left,ClearTextOnFocus=false,Parent=box})
+    local results=c("ScrollingFrame",{Name="SearchResults",Position=list.Position,Size=list.Size,BackgroundTransparency=1,BorderSizePixel=0,ScrollBarThickness=0,AutomaticCanvasSize=Enum.AutomaticSize.Y,CanvasSize=UDim2.new(),Visible=false,Parent=sidebar})
+    t(results,10,10,4,4)
+    c("UIListLayout",{SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,4),Parent=results})
+    table.insert(self._controls,box)
+    table.insert(self._controls,results)
+    self.SearchBox=input
+    input.Focused:Connect(function() a(boxStroke,{Color=b.Accent},.15)end)
+    input.FocusLost:Connect(function() a(boxStroke,{Color=b.Stroke},.2)end)
+    local function jumpTo(entry)
+        input.Text=""
+        self:SelectTab(entry.tab)
+        task.delay(.35,function()
+            local frame=entry.frame
+            if not frame or not frame.Parent then return end
+            local scroller=entry.tab.List
+            local offset=(frame.AbsolutePosition.Y-scroller.AbsolutePosition.Y)/self.Scale.Scale+scroller.CanvasPosition.Y-12
+            a(scroller,{CanvasPosition=Vector2.new(0,math.max(offset,0))},.3)
+            local stroke=frame:FindFirstChildOfClass"UIStroke"
+            if stroke then
+                a(stroke,{Color=b.Accent},.15)
+                task.delay(1.2,function() if stroke.Parent then a(stroke,{Color=b.Stroke},.4)end end)
+            end
+        end)
+    end
+    local rows={}
+    local function refresh()
+        for _,row in ipairs(rows)do row:Destroy()end
+        table.clear(rows)
+        local query=input.Text:lower():match"^%s*(.-)%s*$"
+        local searching=#query>0
+        results.Visible=searching
+        list.Visible=not searching
+        if searching then self.Indicator.Visible=false
+        elseif self.CurrentTab then self:_placeIndicator(self.CurrentTab)end
+        if not searching then return end
+        local count=0
+        for _,entry in ipairs(self._searchIndex or{})do
+            if count>=40 then break end
+            local haystack=(entry.name.." "..entry.desc.." "..entry.tab.Name):lower()
+            if entry.frame.Parent and haystack:find(query,1,true)then
+                count+=1
+                local row=c("TextButton",{Size=UDim2.new(1,0,0,34),BackgroundColor3=b.Surface2,BackgroundTransparency=.3,Text="",AutoButtonColor=false,LayoutOrder=count,Parent=results})
+                e(row)
+                f{Position=UDim2.fromOffset(10,4),Size=UDim2.new(1,-18,0,15),Text=entry.name,TextSize=12,Parent=row}
+                f{Position=UDim2.fromOffset(10,18),Size=UDim2.new(1,-18,0,13),Text=entry.tab.Name..(entry.desc~=""and"  ·  "..entry.desc or""),TextSize=10,FontFace=i.Regular,TextColor3=b.Muted,Parent=row}
+                row.MouseEnter:Connect(function() a(row,{BackgroundTransparency=0},.12)end)
+                row.MouseLeave:Connect(function() a(row,{BackgroundTransparency=.3},.2)end)
+                row.MouseButton1Click:Connect(function() jumpTo(entry)end)
+                table.insert(rows,row)
+            end
+        end
+        if count==0 then table.insert(rows,f{Size=UDim2.new(1,0,0,26),Text="No match",TextSize=12,FontFace=i.Regular,TextColor3=b.Muted,TextXAlignment=Enum.TextXAlignment.Center,Parent=results})end
+    end
+    input:GetPropertyChangedSignal"Text":Connect(refresh)
+end
 local function autoLoadPath(window) return window.ConfigFolder.."/"..window._baseConfigName..".autoload.txt"end
 function g:GetAutoLoad()
     if not R2()then return nil end
@@ -1390,9 +1455,9 @@ function g:Dialog(j)
     local r="TextTransparency"
     j=k(j,{Text="Content",Message="Content"})
     if self._dialog then self._dialog.Close()end
-    local d2=16
+    local d2=14
     local p2=c("TextButton",{Size=UDim2.fromScale(1,1),BackgroundColor3=Color3.new(0,0,0),BackgroundTransparency=1,Text="",AutoButtonColor=false,ZIndex=40,Parent=self.Body})
-    local g=c("Frame",{AnchorPoint=Vector2.new(.5,.5),Position=UDim2.new(.5,0,.5,10),Size=UDim2.fromOffset(280,110),BackgroundColor3=b.Background,BackgroundTransparency=1,BorderSizePixel=0,ZIndex=41,Parent=p2})
+    local g=c("Frame",{AnchorPoint=Vector2.new(.5,.5),Position=UDim2.new(.5,0,.5,10),Size=UDim2.fromOffset(260,100),BackgroundColor3=b.Background,BackgroundTransparency=1,BorderSizePixel=0,ZIndex=41,Parent=p2})
     e(g,UDim.new(0,10))
     local u2=h(g,b.Stroke,1)
     local v2=c("UIScale",{Scale=.94,Parent=g})
@@ -1403,7 +1468,7 @@ function g:Dialog(j)
         c2.ZIndex=42
         a2.ZIndex=42
         table.insert(l2,{a2,"ImageTransparency",0})
-        s2=22
+        s2=20
     end
     local x2=f{Position=UDim2.fromOffset(d2+s2,d2),Size=UDim2.new(1,-(d2*2+s2),0,18),Text=j.Title or"Are you sure?",TextSize=14,TextTransparency=1,ZIndex=42,Parent=g}
     table.insert(l2,{x2,r,0})
@@ -1415,7 +1480,7 @@ function g:Dialog(j)
     end
     local w2=c("Frame",{Name="ButtonRow",Position=UDim2.fromOffset(d2,d2+22+n2+12),Size=UDim2.new(1,-d2*2,0,32),BackgroundTransparency=1,ZIndex=42,Parent=g})
     c("UIListLayout",{FillDirection=Enum.FillDirection.Horizontal,HorizontalAlignment=Enum.HorizontalAlignment.Right,SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,8),Parent=w2})
-    g.Size=UDim2.fromOffset(280,d2+22+n2+12+32+d2)
+    g.Size=UDim2.fromOffset(260,d2+22+n2+12+32+d2)
     local o2,q2={},false
     function o2.Close()
         if q2 then return end
@@ -1430,7 +1495,7 @@ function g:Dialog(j)
     end
     for p2,j2 in ipairs(j.Buttons or{})do
         local g2=j2.Variant=="Primary"
-        local d3=c("TextButton",{Size=UDim2.fromOffset(0,32),AutomaticSize=Enum.AutomaticSize.X,BackgroundColor3=g2 and b.Accent or b.Surface2,BackgroundTransparency=1,BorderSizePixel=0,Text="",AutoButtonColor=false,ClipsDescendants=true,LayoutOrder=p2,ZIndex=43,Parent=w2})
+        local d3=c("TextButton",{Size=UDim2.fromOffset(0,30),AutomaticSize=Enum.AutomaticSize.X,BackgroundColor3=g2 and b.Accent or b.Surface2,BackgroundTransparency=1,BorderSizePixel=0,Text="",AutoButtonColor=false,ClipsDescendants=true,LayoutOrder=p2,ZIndex=43,Parent=w2})
         e(d3,UDim.new(0,7))
         local i2=h(d3,g2 and b.Accent or b.Stroke,1)
         t(d3,12,12)
@@ -1474,17 +1539,17 @@ function g:Notify(d)
     e(g,UDim.new(0,10))
     local B2=h(g,b.Stroke)
     L(g)
-    x(g,UDim2.fromOffset(240,110),UDim2.new(1,-10,0,-10),.86,90)
+    x(g,UDim2.fromOffset(220,100),UDim2.new(1,-10,0,-10),.86,90)
     local m2=c(l2,{Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.AutomaticSize.Y,BackgroundTransparency=1,Parent=g})
-    t(m2,14,14,12,20)
+    t(m2,12,12,12,18)
     local n2=0
-    if d.Icon then A(m2,d.Icon,r==b.Text and b.Accent or r,UDim2.new(0,0,0,7))n2=22 end
-    f{Position=UDim2.fromOffset(n2,0),Size=UDim2.new(1,-26-n2,0,15),Text=d.Title or"Notification",TextSize=13,TextColor3=r,Parent=m2}
+    if d.Icon then A(m2,d.Icon,r==b.Text and b.Accent or r,UDim2.new(0,0,0,7))n2=20 end
+    f{Position=UDim2.fromOffset(n2,0),Size=UDim2.new(1,-24-n2,0,15),Text=d.Title or"Notification",TextSize=13,TextColor3=r,Parent=m2}
     local o2=c("TextButton",{AnchorPoint=Vector2.new(1,0),Position=UDim2.new(1,6,0,-5),Size=UDim2.fromOffset(22,22),BackgroundTransparency=1,Text="×",TextColor3=b.Muted,TextSize=20,FontFace=i.Medium,AutoButtonColor=false,Parent=m2})
     o2.MouseEnter:Connect(function() a(o2,{TextColor3=b.Text},.15)end)
     o2.MouseLeave:Connect(function() a(o2,{TextColor3=b.Muted},.2)end)
     if d.Content then f{Position=UDim2.fromOffset(n2,19),Size=UDim2.new(1,-n2,0,0),AutomaticSize=Enum.AutomaticSize.Y,Text=d.Content,TextSize=12,FontFace=i.Regular,TextColor3=b.Muted,TextWrapped=true,TextTruncate=Enum.TextTruncate.None,TextYAlignment=Enum.TextYAlignment.Top,Parent=m2}end
-    local w2=c(l2,{AnchorPoint=Vector2.new(0,1),Position=UDim2.new(0,14,1,-7),Size=UDim2.new(1,-28,0,3),BackgroundColor3=b.Surface3,BorderSizePixel=0,Parent=g})
+    local w2=c(l2,{AnchorPoint=Vector2.new(0,1),Position=UDim2.new(0,12,1,-7),Size=UDim2.new(1,-24,0,3),BackgroundColor3=b.Surface3,BorderSizePixel=0,Parent=g})
     e(w2,UDim.new(1,0))
     local y2=c(l2,{Size=UDim2.fromScale(1,1),BackgroundColor3=b.Accent,BorderSizePixel=0,Parent=w2})
     e(y2,UDim.new(1,0))
